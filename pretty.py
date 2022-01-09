@@ -197,7 +197,8 @@ def main() -> int:
         return 2
 
     if args.src == ["-"]:
-        src = detect_project_files(args.exclude)
+        exclude = [] if args.exclude is None else args.exclude
+        src = detect_project_files(exclude)
     else:
         src = args.src
     src.sort()
