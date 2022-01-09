@@ -184,7 +184,7 @@ def main() -> int:
     parser.add_argument('-c', '--check', action='store_true',
                         help='Check if files require reformatting. Return 0 when there\'s nothing to reformat, '
                              'return 1 when some files would be reformatted')
-    parser.add_argument('--exclude', type=str, nargs='*',
+    parser.add_argument('--exclude', type=str, action='append',
                         help='Files and directories to exclude from formatting')
     parser.add_argument('--clang-format', type=str, default='clang-format',
                         help='Clang format to use for C++ files')
