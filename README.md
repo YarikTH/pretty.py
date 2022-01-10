@@ -18,8 +18,8 @@ This script is mostly intended for personal usage for my projects. But feel free
 Just download script using link above and use it. There are no plans to use proper python solutions like pip module etc.
 
 ```console
-usage: pretty.py [-h] [-c] [--exclude [EXCLUDE [EXCLUDE ...]]]
-                 [--clang-format CLANG_FORMAT] [--gersemi GERSEMI]
+usage: pretty.py [-h] [-c] [--exclude EXCLUDE] [--clang-format CLANG_FORMAT]
+                 [--gersemi GERSEMI]
                  [src [src ...]]
 
 A formatter to make your C++ and CMake code the real treasure.
@@ -33,8 +33,7 @@ optional arguments:
   -c, --check           Check if files require reformatting. Return 0 when
                         there's nothing to reformat, return 1 when some files
                         would be reformatted
-  --exclude [EXCLUDE [EXCLUDE ...]]
-                        Files and directories to exclude from formatting
+  --exclude EXCLUDE     Files and directories to exclude from formatting
   --clang-format CLANG_FORMAT
                         Clang format to use for C++ files
   --gersemi GERSEMI     Gersemi to use for CMake files
