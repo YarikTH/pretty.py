@@ -147,15 +147,11 @@ def collect_non_ignored_files(working_tree_dir: str, excluded: List[str] = []) -
                 return False
             if full_path in excluded_paths:
                 return False
-            if len(repo.ignored(full_path)) != 0:
-                return False
             return True
 
         def is_file_suitable(f: str) -> bool:
             full_path = os.path.join(root, f)
             if full_path in excluded_paths:
-                return False
-            if len(repo.ignored(full_path)) != 0:
                 return False
             return True
 
@@ -163,6 +159,8 @@ def collect_non_ignored_files(working_tree_dir: str, excluded: List[str] = []) -
         files[:] = [f for f in files if is_file_suitable(f)]
 
         file_entries.extend([os.path.relpath(os.path.join(root, f), working_tree_dir) for f in files])
+
+    file_entries = list(set(file_entries) - set(repo.ignored(*file_entries)))
 
     file_entries.sort()
 
